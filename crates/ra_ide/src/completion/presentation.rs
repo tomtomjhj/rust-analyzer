@@ -117,7 +117,7 @@ impl Completions {
                 tested_by!(inserts_angle_brackets_for_generics);
                 completion_item = completion_item
                     .lookup_by(local_name.clone())
-                    .label(format!("{}<…>", local_name))
+                    .label(format!("{}", local_name))
                     .insert_snippet(format!("{}<$0>", local_name));
             }
         }
@@ -219,7 +219,7 @@ impl Completions {
             tested_by!(inserts_parens_for_function_calls);
 
             let (snippet, label) = if params.is_empty() || has_self_param && params.len() == 1 {
-                (format!("{}()$0", name), format!("{}()", name))
+                (format!("{}()$0", name), format!("{}", name))
             } else {
                 builder = builder.trigger_call_info();
                 let snippet = if ctx
@@ -240,7 +240,7 @@ impl Completions {
                     format!("{}($0)", name)
                 };
 
-                (snippet, format!("{}(…)", name))
+                (snippet, format!("{}", name))
             };
             builder = builder.lookup_by(name).label(label).insert_snippet(snippet);
         }
