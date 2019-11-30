@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CrateDefMap","Contains all top-level defs from a macro-expanded crate"],["ModuleData",""],["ModuleScope",""],["Resolution",""]]});
